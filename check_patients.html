@@ -1,0 +1,113 @@
+<html>
+<head>
+    <title>Check | Patients</title>
+    <meta charset="utf-8">
+    
+    <!-- 
+        Links de los estilos css propios
+    -->
+    <link rel="stylesheet" href="css/check_patients.css">
+    <!-- 
+        Links de los estilos css de bootstrap
+    -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+   <!-- 
+        Links de los archivos js propios
+    -->
+    <script type="text/javascript" src="js/check_patients.js"></script>
+    <!-- 
+        Links de los archivos js de Jquery y Boostrap
+            Jquery    -> se utilizo para manejar el archivo json y obtener los datos de este.
+            bootstrap -> se utilizo para abrir el modal(pop up) para visualizar la información
+                         de algún paciente en especifico
+    -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><!-- Jquery-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Bootstrap-->
+    
+</head>
+<body >
+
+<header id="header_check_p"> <!-- Empieza el header -->
+        
+        <!-- Logo de Checkup-->
+        <a id="logo-header" href="check_patients.html">
+            <img src="img/checkup-logo.png">
+        </a> 
+
+        
+        
+        <!-- Lista de los botones disponibles para hacer la busqueda de los pacientes-->
+        <nav>
+            <ul>
+                <li><input type="text" id="input_patient" placeholder="Ej: Ryan"></li>
+                <li><span>Buscar por |</span></li>
+                <li><a href="#" onclick="searchPatient(1);">Nombre</a></li>
+                <li><a href="#" onclick="searchPatient(2);">Teléfono</a></li>
+                <li><a href="#" onclick="searchPatient(3);">Fecha</a></li>
+            </ul>
+        </nav>
+ 
+    </header><!-- fin header -->
+
+        <!-- id="content"
+            Este div va a recibir todos los resultados de las consultas
+            al archivo Json
+        -->
+        <div id="content" align="center" class="table-responsive">
+            <h1 class="content_title" >Consulta a tus pacientes.</h1>
+            <p class="content_description" >Busca la información de tus pacientes a partir de su <u>nombre</u>, <u>telefono</u> o <u>fecha de nacimiento</u>.</p>
+        </div>
+
+
+<!-- Modal  de Bootstrap-->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Información Paciente</h4>
+      </div>
+      <div class="modal-body">
+
+      <!-- Lista de la información de los pacientes a desplegar-->
+        <div class="row"><!-- Nombre del paciente-->
+          <div class="col-md-1 col-md-offset-1"><img src="img/user.png"></div>
+          <div class="col-md-6" align="left"><p id="user_name">Patient_information</p></div>
+        </div>
+
+        <div class="row"><!-- Mail del paciente-->
+          <div class="col-md-1 col-md-offset-1"><img src="img/mail.png"></div>
+          <div class="col-md-6" align="left"><p id="user_mail">Patient_information</p></div>
+        </div>
+
+        <div class="row"><!--Genero del paciente-->
+          <div class="col-md-1 col-md-offset-1"><img src="img/gender.png"></div>
+          <div class="col-md-6" align="left"><p id="user_gender">Patient_information</p></div>
+        </div>
+
+        <div class="row"><!-- Teléfono del paciente-->
+          <div class="col-md-1 col-md-offset-1"><img src="img/phone.png"></div>
+          <div class="col-md-6" align="left"><p id="user_phone">Patient_information</p></div>
+        </div>
+
+        <div class="row"><!-- Fecha de nacimiento del paciente-->
+          <div class="col-md-1 col-md-offset-1"><img src="img/birth.png"></div>
+          <div class="col-md-6" align="left"><p id="user_birth">Patient_information</p></div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <!-- Boton para cerrar el modal de bootstrap-->
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+    
+
+</body>
+</html>

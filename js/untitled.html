@@ -1,0 +1,12 @@
+function lee_json() {
+            alert("lee_json");
+            $.getJSON("json_doc/patients.json", function(datos) {
+                //alert("Dato: " + datos["dato"]);
+
+                for(i=0;i<10;i++)
+                {
+                    alert(datos[i].first_name);
+                }
+                
+            });
+        }
